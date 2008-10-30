@@ -1,0 +1,2 @@
+cd /var/lib/suplaris/httpd/intlog/$1
+

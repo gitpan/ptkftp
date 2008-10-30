@@ -1,0 +1,33 @@
+This is "ptkftp", a Perl/Tk GUI interface to Perl's Net::FTP and Net::SFTP 
+modules.  it requires either or both of them installed to be of much use.  
+Without them all you can do is copy files between directories on your local 
+machine. 
+
+I wrote "ptkftp.pl" because I could not find a GUI program which worked with 
+both FTP and SFTP/SSH2 for me.  It also takes full advantage of my 
+Net::xFTP module.
+
+Please note that this program is copyrighted by Jim Turner, (c) 2002 - 2008 
+ and is released under the same license that Perl itself is.
+
+This software is released in the 
+hope that it will be useful, however the nether the author, the hosts of 
+any websites from which the program may be obtained, nor anyone else for that 
+matter is liable for any damages that may be caused by this program!  Use 
+at your own risk, you have been warned!
+
+To install, you must have Perl, Tk, and Net::xFTP modules installed.  Copy 
+"JBrowseEntry.pl" and "JDialog.pl" to your Tk subdirectory where your Perl 
+libraries are kept (or better yet - install them from CPAN).  
+Then copy "JCutCopyPaste" to the same directory the "Tk" subdirectory 
+resides, then copy "ptkftp.pl" to somewhere in your path. 
+
+Invoke as:
+
+ptkftp.pl &
+
+feedback welcome at:  turnerjw784@yahoo.com
+
+Enjoy the ride,
+
+Jim Turner

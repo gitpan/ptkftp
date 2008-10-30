@@ -1,0 +1,83 @@
+Revision history for "ptkftp".
+
+0.1   -Not released-
+0.2   Wed Aug 14, 2002
+	- original version released;
+0.3   -Not released-
+0.4   -Not released-
+0.5	  Fri Aug 16, 2002
+	- Made dropdown list selections to be saved on exit and reloaded when restarted.
+	- Got working on Windows.
+	- Got it to compile and build with Perl2Exe.
+0.51  Sat Aug 17, 2002
+	- Added "require" for my "SetPalette.pl" file.  Makes foreground white when 
+	  background palette (-c="color") is set really dark.
+0.52  -Not released-
+0.53  Added checkbox to save password.  Password is encrypted before being 
+	  saved to a text file called ".ptkftp.users", and is associated with a 
+	  server and user-name.  This option is only available if the following 
+	  modules are installed:  "Crypt::CBC", and either "Crypt::DES" or 
+	  "Crypt::Blowfish_PP".
+	- Added "-w" (width) option to specify fixed character width for the 
+	  text and listboxes.
+	- Now saves last user-name and directory under which a given host was 
+	  logged in to.
+0.54  Tue Aug 20, 2002
+	- Remembered passwords now change when user is changed in dropdown list.
+	- Fixed bug where some passwords were not stored.
+	- Last directory accessed now saved with user instead of host (remembers 
+	  which directory each user was last in on a given host.
+0.55  -Not released-
+0.56  -Not released-
+0.57	 Sat Aug 24, 2002
+	- Added "Edit, View, and Diff" options.  Selected remote file is auto-
+	  matically downloaded to a temp file, and viewed, edited, or compared 
+	  there.  If editing, it is automatically uploaded back when done.
+	- Added Server-pinging option to keep connection open while idle.  Server 
+	  is "ping"ed after 2 minutes, then at random intervals between 1 and 3 
+	  minutes thereafter.  Pinging occurrs automatically if a "remote" file 
+	  is opened for editing.
+	- Added "file rename" option and dialog.
+	- Added user-specified encryption module (-crypt=...) option.  Previously, 
+	  "DES" was tried, then failing that, "Blowfish_PP".  The specified option 
+	  is saved on exit.  Encryption is only used to encrypt "remembered" 
+	  passwords when storing them to the ".ptkftp.users" file to prevent them 
+	  from being viewable by anyone.  No encryption is necessary nor any 
+	  encryption module needed to run the program if one does not wish the 
+	  program to "remember" passwords.
+0.59	 Sat Aug 31, 2002
+	- Removed "keepopen" feature if running under Windows.
+	- Added wheel-mouse support to scrollbars.
+0.60	 Thu Feb 20, 2003
+	- Fixed bug that messed up host-name in dropdown after disconnect and 
+	  attempting to reconnect.
+0.61  Unknown
+	- Fixed bug where 2 sets of "." and ".." appeared in right-hand file list.
+0.62  Thu June 2, 2005
+	- Changed width to maxwidth in argument list for JBrowseEntry.
+	- Improved selected directory history list and limited it to default of
+	  last 20 directories selected.  Overrideable with "-h #".
+0.80	- Completely redid to use Net::xFTP for all connections.  Also changed 
+	  the file listings to use Tk::MListbox instead of Tk::Listbox so that 
+	  file owner, group, permissions, and size could be displayed in 
+	  columns along with the name.  One can also now see which files are 
+	  directories.  Ascii/Binary radio buttons now greyed out except when 
+	  using Net::FTP.
+0.84 - Fixed some minor bugs.
+0.86 - Fixed file listing bug in Windows - was trying to use "ls" command, 
+	  which doesn't exist in Windows, now emulates "ls -l" without user/
+	  group data.
+0.90 - Fixed SFTP "input must be 8 bytes long at /usr/local/lib/perl/5.8.7/Crypt/DES.pm"
+	  bug (actually didn't "fix", just worked around) by wrapping calls to 
+	  sftp->new, sftp->put, and sftp->chmod along with their arguments in 
+	  an eval string and evalling them?!?!?!  Must be something to do with 
+	  Tk's en/decoding.  Placing the variable arguments as constants (in 
+	  the eval string), seems to work.  Other functions don't seem to have 
+	  problems.  Only had this happen on servers for one client.
+0.91	- Fixed "Show All" - was broke somewhere in recent versions.
+0.92	- Modified "Connect" button to say "connecting" and be disabled while 
+	  connecting to a remote host.
+1.00	- Added support for Net::SSH2 for doing Secure FTP (in addition to 
+	  existing Net::SFTP support - by updating Net::xFTP to v. 0.20)
+	  Created Windows binary and self-extracting setup exe.  Made compatable 
+	  with Windows.
